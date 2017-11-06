@@ -63,14 +63,14 @@ LIB = $(addprefix $(LIB_PATH),$(LIB_NAME))
 
 all: $(NAME) $(NAME2)
 
-$(NAME):
+$(NAME): $(OBJ_PSHSWP_NAME)
 	@make -C $(LIB_PATH)
 	@mkdir $(OBJ_PSHSWP_PATH) 2> /dev/null || true
 	@$(CC) -c $(SRC_PSHSWP) $(I_FLAGS) $(W_FLAGS)
 	@mv $(OBJ_PSHSWP_NAME) $(OBJ_PSHSWP_PATH)
 	@$(CC) -o $(NAME) $(OBJ_PSHSWP) $(LIB)
 
-$(NAME2):
+$(NAME2): $(OBJ_CHECK_NAME)
 	@mkdir $(OBJ_CHECK_PATH) 2> /dev/null || true
 	@$(CC) -c $(SRC_CHECK) $(I_FLAGS) $(W_FLAGS)
 	@mv $(OBJ_CHECK_NAME) $(OBJ_CHECK_PATH)

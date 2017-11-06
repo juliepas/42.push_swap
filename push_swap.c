@@ -36,7 +36,7 @@ int				main(int argc, char **argv)
 	l = 0;
 	pilea = NULL;
 	pileb = NULL;
-	if (ft_strcmp(argv[1], "-l") == 0)
+	if (argc > 1 && ft_strcmp(argv[1], "-l") == 0)
 		l = 1;
 	parseur(&pilea, argc, argv, l);
 	if (check_sort(&pilea) == 0)

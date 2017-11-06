@@ -6,7 +6,7 @@
 /*   By: jpascal <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 18:34:13 by jpascal           #+#    #+#             */
-/*   Updated: 2017/08/24 18:34:14 by jpascal          ###   ########.fr       */
+/*   Updated: 2017/10/11 17:00:53 by jpascal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void			parseur2(t_pile **pilea, char **tab)
 			if (checkdoublons(*pilea, tab[j]) == 1
 				|| i > INT_MAX || i < INT_MIN)
 			{
-				ft_putstr_fd("Error", 2);
+				ft_putstr_fd("Error\n", 2);
 				exit(-1);
 			}
 			add_struct(pilea, ft_atoi(tab[j]));
@@ -106,7 +106,7 @@ void			parseur(t_pile **pilea, int argc, char **argv, int l)
 		}
 	else
 	{
-		ft_putstr_fd("Error", 2);
+		ft_putstr_fd("Error\n", 2);
 		exit(-1);
 	}
 }
