@@ -16,7 +16,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-# include "libft/libft.h"
+# include <time.h>
+# include "../libft/libft.h"
+
 
 typedef struct			s_pile
 {
@@ -56,5 +58,6 @@ int						find_value(t_pile **pilex, int index);
 void					third_sort_part_2(t_pile **pilea, t_pile **pileb);
 void					rm_liste(t_pile **pilea);
 long int				ft_longatoi(const char *str);
+void					rm_tab(char **tab);
 
 #endif

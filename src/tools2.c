@@ -18,7 +18,8 @@ void			add_struct(t_pile **pilea, int argv)
 	t_pile		*tmpa;
 
 	tmpa = *pilea;
-	new = ft_memalloc(sizeof(t_pile));
+	if (!(new = ft_memalloc(sizeof(t_pile))))
+		exit(-1);
 	new->ent = argv;
 	new->next = NULL;
 	if (*pilea != NULL)

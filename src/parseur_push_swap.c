@@ -101,7 +101,8 @@ void			parseur(t_pile **pilea, int argc, char **argv, int l)
 	if (checkerav(argc, argv, l) == 1)
 		while (argv[--i] && i > j)
 		{
-			tab = ft_strsplit(argv[i], ' ');
+			if(!(tab = ft_strsplit(argv[i], ' ')))
+				exit(-1);
 			parseur2(pilea, tab);
 		}
 	else

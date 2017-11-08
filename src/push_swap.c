@@ -50,5 +50,6 @@ int				main(int argc, char **argv)
 	}
 	if (l == 1)
 		afficher_liste(&pilea, &pileb);
+	while(1);
 	return (0);
 }

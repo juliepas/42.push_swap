@@ -28,11 +28,6 @@ void				act_on_b(t_pile **pilea, t_pile **pileb, char *line)
 		swap_a_et_b_checker(pilea, pileb);
 	else if (ft_strcmp(line, "rrb") == 0)
 		reverse_rotate_b(pileb, 0);
-	else
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(-1);
-	}
 }
 
 void				act_on_a(t_pile **pilea, t_pile **pileb, char *line)
@@ -49,11 +44,6 @@ void				act_on_a(t_pile **pilea, t_pile **pileb, char *line)
 			reverse_rotate_a(pilea, 0);
 		else if (*pileb != NULL)
 			act_on_b(pilea, pileb, line);
-		else
-		{
-			ft_putstr_fd("Error\n", 2);
-			exit(-1);
-		}
 	}
 	else if (*pileb != NULL)
 		act_on_b(pilea, pileb, line);
@@ -72,7 +62,10 @@ int					main(int argc, char **argv)
 	if (pilea != NULL)
 	{
 		while (get_next_line(0, &line) == 1)
+		{
 			act_on_a(&pilea, &pileb, line);
+			ft_strdel(&line);
+		}
 		while (pilea && pilea->next != NULL)
 		{
 			if (pilea->ent > pilea->next->ent || pileb != NULL)
