@@ -79,7 +79,7 @@ void			parseur2(t_pile **pilea, char **tab)
 			i = ft_longatoi(tab[j]);
 			if (checkdoublons(*pilea, tab[j]) == 1
 				|| i > INT_MAX || i < INT_MIN 
-				|| ft_strlen(tab[j]) > 10)
+				|| ft_strlen(tab[j]) > 11)
 			{
 				ft_putstr_fd("Error\n", 2);
 				exit(-1);
