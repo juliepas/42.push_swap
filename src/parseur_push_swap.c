@@ -51,8 +51,9 @@ int				checkerav(int argc, char **argv, int l)
 	while (i < argc)
 	{
 		j = 0;
-		while (ft_isdigit(argv[i][j]) == 1 || argv[i][j] == ' '
-			|| argv[i][j] == '+' || argv[i][j] == '-')
+		if (argv[i][0] == '+' || argv[i][0] == '-')
+			j += 1;
+		while (ft_isdigit(argv[i][j]) == 1 || argv[i][j] == ' ')
 			j++;
 		if (argv[i][j] == '\0')
 			i++;
@@ -64,8 +65,8 @@ int				checkerav(int argc, char **argv, int l)
 
 void			parseur2(t_pile **pilea, char **tab)
 {
-	int			j;
-	long int	i;
+	int				j;
+	long long int	i;
 
 	i = 0;
 	j = 0;
@@ -77,7 +78,8 @@ void			parseur2(t_pile **pilea, char **tab)
 		{
 			i = ft_longatoi(tab[j]);
 			if (checkdoublons(*pilea, tab[j]) == 1
-				|| i > INT_MAX || i < INT_MIN)
+				|| i > INT_MAX || i < INT_MIN 
+				|| ft_strlen(tab[j]) > 10)
 			{
 				ft_putstr_fd("Error\n", 2);
 				exit(-1);

@@ -19,10 +19,11 @@ void			swap_a(t_pile **pilea, int i)
 	int			tamp;
 
 	tmp = *pilea;
-	tmp2 = tmp->next;
+	tmp2 = NULL;
 	tamp = 0;
 	if (tmp && tmp->next != NULL)
 	{
+		tmp2 = tmp->next;
 		ft_swap(&tmp->ent, &tmp2->ent);
 		if (i == 1)
 			ft_putstr("sa\n");
@@ -36,10 +37,11 @@ void			swap_b(t_pile **pileb, int i)
 	int			tamp;
 
 	tmp = *pileb;
-	tmp2 = tmp->next;
+	tmp2 = NULL;
 	tamp = 0;
 	if (tmp && tmp->next != NULL)
 	{
+		tmp2 = tmp->next;
 		tamp = tmp->ent;
 		tmp->ent = tmp2->ent;
 		tmp2->ent = tamp;

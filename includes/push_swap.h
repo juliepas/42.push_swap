@@ -57,7 +57,7 @@ int						check_sort(t_pile **pilex);
 int						find_value(t_pile **pilex, int index);
 void					third_sort_part_2(t_pile **pilea, t_pile **pileb);
 void					rm_liste(t_pile **pilea);
-long int				ft_longatoi(const char *str);
+long long int			ft_longatoi(const char *str);
 void					rm_tab(char **tab);
 
 #endif

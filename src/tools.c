@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-long int			ft_longatoi(const char *str)
+long long int			ft_longatoi(const char *str)
 {
 	int				i;
 	int				s;
-	long int		nb;
+	long long int	nb;
 
 	s = 1;
 	nb = 0;

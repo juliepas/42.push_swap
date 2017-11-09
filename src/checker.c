@@ -28,24 +28,24 @@ void				act_on_b(t_pile **pilea, t_pile **pileb, char *line)
 		swap_a_et_b_checker(pilea, pileb);
 	else if (ft_strcmp(line, "rrb") == 0)
 		reverse_rotate_b(pileb, 0);
+	else 
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit(-1);
+	}
 }
 
 void				act_on_a(t_pile **pilea, t_pile **pileb, char *line)
 {
-	if (*pilea != NULL)
-	{
-		if (ft_strcmp(line, "ra") == 0)
-			rotate_a(pilea, 0);
-		else if (ft_strcmp(line, "pb") == 0)
-			push_b_checker(pilea, pileb);
-		else if (ft_strcmp(line, "sa") == 0)
-			swap_a(pilea, 0);
-		else if (ft_strcmp(line, "rra") == 0)
-			reverse_rotate_a(pilea, 0);
-		else if (*pileb != NULL)
-			act_on_b(pilea, pileb, line);
-	}
-	else if (*pileb != NULL)
+	if (ft_strcmp(line, "ra") == 0)
+		rotate_a(pilea, 0);
+	else if (ft_strcmp(line, "pb") == 0)
+		push_b_checker(pilea, pileb);
+	else if (ft_strcmp(line, "sa") == 0)
+		swap_a(pilea, 0);
+	else if (ft_strcmp(line, "rra") == 0)
+		reverse_rotate_a(pilea, 0);
+	else
 		act_on_b(pilea, pileb, line);
 }
 
@@ -70,12 +70,15 @@ int					main(int argc, char **argv)
 		{
 			if (pilea->ent > pilea->next->ent || pileb != NULL)
 			{
-				ft_putstr("KO");
+				ft_putstr("KO\n");
 				exit(-1);
 			}
 			pilea = pilea->next;
 		}
-		ft_putstr("OK");
+		if (pileb != NULL)
+			ft_putstr("KO\n");
+		else
+			ft_putstr("OK\n");
 	}
 	return (0);
 }
