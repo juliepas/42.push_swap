@@ -78,8 +78,7 @@ void			parseur2(t_pile **pilea, char **tab)
 		{
 			i = ft_longatoi(tab[j]);
 			if (checkdoublons(*pilea, tab[j]) == 1
-				|| i > INT_MAX || i < INT_MIN 
-				|| ft_strlen(tab[j]) > 11)
+				|| i > INT_MAX || i < INT_MIN || ft_strlen(tab[j]) > 11)
 			{
 				ft_putstr_fd("Error\n", 2);
 				exit(-1);
@@ -103,7 +102,7 @@ void			parseur(t_pile **pilea, int argc, char **argv, int l)
 	if (checkerav(argc, argv, l) == 1)
 		while (argv[--i] && i > j)
 		{
-			if(!(tab = ft_strsplit(argv[i], ' ')))
+			if (!(tab = ft_strsplit(argv[i], ' ')))
 				exit(-1);
 			parseur2(pilea, tab);
 		}

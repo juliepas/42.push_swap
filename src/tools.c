@@ -14,9 +14,9 @@
 
 long long int			ft_longatoi(const char *str)
 {
-	int				i;
-	int				s;
-	long long int	nb;
+	int					i;
+	int					s;
+	long long int		nb;
 
 	s = 1;
 	nb = 0;
@@ -39,10 +39,10 @@ long long int			ft_longatoi(const char *str)
 	return (nb * s);
 }
 
-int					find_smallest(t_pile **pilea)
+int						find_smallest(t_pile **pilea)
 {
-	t_pile			*tmpa;
-	int				smaller;
+	t_pile				*tmpa;
+	int					smaller;
 
 	tmpa = *pilea;
 	smaller = tmpa->ent;
@@ -55,12 +55,12 @@ int					find_smallest(t_pile **pilea)
 	return (smaller);
 }
 
-int					find_mediane(t_pile **pilea, int height, int argc)
+int						find_mediane(t_pile **pilea, int height, int argc)
 {
-	t_pile			*tmpa;
-	int				tab[height];
-	int				i;
-	int				entier;
+	t_pile				*tmpa;
+	int					tab[height];
+	int					i;
+	int					entier;
 
 	i = height;
 	while (i >= 0)
@@ -83,10 +83,10 @@ int					find_mediane(t_pile **pilea, int height, int argc)
 	return (tab[(height / ((argc / 100) + 2))]);
 }
 
-int					list_height(t_pile **pilex)
+int						list_height(t_pile **pilex)
 {
-	t_pile			*tmp;
-	int				i;
+	t_pile				*tmp;
+	int					i;
 
 	i = 0;
 	tmp = *pilex;
@@ -98,12 +98,12 @@ int					list_height(t_pile **pilex)
 	return (i);
 }
 
-int					find_place_value_b(t_pile **pilex, int value)
+int						find_place_value_b(t_pile **pilex, int value)
 {
-	int				i;
-	t_pile			*tmp;
-	int				height;
-	t_pile			*lastmp;
+	int					i;
+	t_pile				*tmp;
+	int					height;
+	t_pile				*lastmp;
 
 	i = 1;
 	tmp = *pilex;

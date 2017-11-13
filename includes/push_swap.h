@@ -19,7 +19,6 @@
 # include <time.h>
 # include "../libft/libft.h"
 
-
 typedef struct			s_pile
 {
 	int					ent;
