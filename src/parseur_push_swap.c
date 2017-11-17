@@ -52,9 +52,9 @@ int				checkerav(int argc, char **argv, int l)
 	{
 		j = 0;
 		while (ft_isdigit(argv[i][j]) == 1 || argv[i][j] == ' ' ||
-			((argv[i][j] == '+' || argv[i][j] == '-')
+			argv[i][j] == '\t' || ((argv[i][j] == '+' || argv[i][j] == '-')
 			&& ft_isdigit(argv[i][j + 1]) == 1 &&
-			(argv[i][j - 1] == ' ' || j == 0)))
+			(argv[i][j - 1] == ' ' || argv[i][j - 1] == '\t' || j == 0)))
 			j++;
 		if (argv[i][j] == '\0')
 			i++;
