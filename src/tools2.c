@@ -18,7 +18,7 @@ void			add_struct(t_pile **pilea, int argv)
 	t_pile		*tmpa;
 
 	tmpa = *pilea;
-	if (!(new = ft_memalloc(sizeof(t_pile))))
+	if (!(new = (t_pile*)malloc(sizeof(t_pile))))
 		exit(-1);
 	new->ent = argv;
 	new->next = NULL;
@@ -81,7 +81,7 @@ void			afficher_liste(t_pile **pilea, t_pile **pileb)
 	while (tmpa)
 	{
 		ft_putnbr(tmpa->ent);
-		ft_putchar('|');
+		ft_putchar('\n');
 		tmpa = tmpa->next;
 	}
 	ft_putchar('\n');
