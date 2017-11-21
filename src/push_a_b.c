@@ -19,7 +19,10 @@ void			push_a(t_pile **pilea, t_pile **pileb)
 	tmpb = *pileb;
 	if (tmpb)
 	{
-		*pileb = tmpb->next;
+		if (tmpb->next)
+			*pileb = tmpb->next;
+		else
+			*pileb = NULL;
 		if (*pilea != NULL)
 			tmpb->next = *pilea;
 		else

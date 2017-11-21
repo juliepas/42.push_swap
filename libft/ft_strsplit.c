@@ -27,7 +27,7 @@ static size_t	nbr_words(const char *str, char c)
 		if (str[i] == c || str[i] == '\0')
 		{
 			nb++;
-			while (str[i] == c)
+			while (str[i + 1] == c)
 				i++;
 		}
 	}
@@ -39,7 +39,7 @@ static int		ft_lenwords(char const *str, char c, int index)
 	int	len;
 
 	len = index;
-	while (str[len] != c && str[len])
+	while (str[len] && str[len] != c)
 		len++;
 	return (len - index);
 }
@@ -55,12 +55,12 @@ static char		**ft_createtab(char const *s, char **tab, char c)
 	i = 0;
 	while (s[index])
 	{
-		while (s[index] == c && s[index])
+		while (s[index] && s[index] == c)
 			index++;
 		if (!(tab[i] = (char*)malloc(sizeof(char) *
 						ft_lenwords(s, c, index) + 1)))
 			return (0);
-		while (s[index] != c && s[index])
+		while (s[index] && s[index] != c)
 		{
 			tab[i][j] = s[index];
 			j++;
@@ -78,11 +78,12 @@ char			**ft_strsplit(char const *s, char c)
 	char	**tab;
 	int		nb_words;
 
+	nb_words = 0;
 	if (!(s))
-		return (0);
+		return (NULL);
 	nb_words = nbr_words(s, c);
 	if (!(tab = (char**)malloc(sizeof(char*) * nb_words + 1)))
-		return (0);
+		return (NULL);
 	ft_createtab(s, tab, c);
 	tab[nb_words] = NULL;
 	return (tab);

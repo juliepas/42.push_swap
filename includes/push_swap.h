@@ -58,5 +58,6 @@ void					third_sort_part_2(t_pile **pilea, t_pile **pileb);
 void					rm_liste(t_pile **pilea);
 long long int			ft_longatoi(const char *str);
 void					rm_tab(char **tab);
+void					free_struct(t_pile **pilex);
 
 #endif

@@ -20,10 +20,10 @@ void			add_struct(t_pile **pilea, int argv)
 	tmpa = *pilea;
 	if (!(new = (t_pile*)malloc(sizeof(t_pile))))
 		exit(-1);
-	new->ent = argv;
 	new->next = NULL;
+	new->ent = argv;
 	if (*pilea != NULL)
-		new->next = tmpa;
+		new->next = *pilea;
 	*pilea = new;
 }
 
@@ -78,17 +78,11 @@ void			afficher_liste(t_pile **pilea, t_pile **pileb)
 
 	tmpa = *pilea;
 	tmpb = *pileb;
+	ft_putchar('\n');
 	while (tmpa)
 	{
 		ft_putnbr(tmpa->ent);
 		ft_putchar('\n');
 		tmpa = tmpa->next;
-	}
-	ft_putchar('\n');
-	while (tmpb)
-	{
-		ft_putnbr(tmpb->ent);
-		ft_putchar('|');
-		tmpb = tmpb->next;
 	}
 }

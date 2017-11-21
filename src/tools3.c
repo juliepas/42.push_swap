@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puttab.c                                        :+:      :+:    :+:   */
+/*   tools3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpascal <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jpascal <jpascal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/23 08:25:04 by jpascal           #+#    #+#             */
-/*   Updated: 2016/11/23 08:58:23 by jpascal          ###   ########.fr       */
+/*   Created: 2017/11/19 17:16:07 by jpascal           #+#    #+#             */
+/*   Updated: 2017/11/19 17:16:12 by jpascal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_puttab(char **tab)
+void		free_struct(t_pile **pilex)
 {
-	int i;
+	t_pile *tmp;
+	t_pile *tamp;
 
-	i = 0;
-	while (tab[i])
+	tmp = *pilex;
+	tamp = *pilex;
+	while (tamp != NULL)
 	{
-		ft_putstr(tab[i]);
-		ft_putchar('|');
-		i++;
+		tmp = tamp;
+		free(tamp);
+		tamp = tmp->next;
 	}
 }

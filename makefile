@@ -41,6 +41,7 @@ SRC_PSHSWP_NAME =	$(SRCS_PATH)push_swap.c \
 					$(SRCS_PATH)reverse_rotate_a_b.c \
 					$(SRCS_PATH)tools.c \
 					$(SRCS_PATH)tools2.c \
+					$(SRCS_PATH)tools3.c \
 					$(SRCS_PATH)mini_push_swap.c
 
 SRC_CHECK_NAME 	=	$(SRCS_PATH)checker.c \
@@ -50,11 +51,10 @@ SRC_CHECK_NAME 	=	$(SRCS_PATH)checker.c \
 					$(SRCS_PATH)rotate_a_b.c \
 					$(SRCS_PATH)reverse_rotate_a_b.c \
 					$(SRCS_PATH)tools.c \
-					$(SRCS_PATH)tools2.c
+					$(SRCS_PATH)tools2.c \
+					$(SRCS_PATH)tools3.c \
 
 LIB				= libft/libft.a
-
-# LIB_NAME 		= libft.a
 
 #OBJECTS
 

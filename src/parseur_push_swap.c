@@ -82,6 +82,7 @@ void			parseur2(t_pile **pilea, char **tab)
 				|| i > INT_MAX || i < INT_MIN || ft_strlen(tab[j]) > 11)
 			{
 				ft_putstr_fd("Error\n", 2);
+				free_struct(pilea);
 				exit(-1);
 			}
 			add_struct(pilea, ft_atoi(tab[j]));
@@ -110,6 +111,7 @@ void			parseur(t_pile **pilea, int argc, char **argv, int l)
 	else
 	{
 		ft_putstr_fd("Error\n", 2);
+		free_struct(pilea);
 		exit(-1);
 	}
 }

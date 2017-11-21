@@ -12,34 +12,6 @@
 
 #include "libft.h"
 
-char			*ft_strjoinchar(char *str, char c)
-{
-	int		i;
-	char	*tmp;
-
-	i = 0;
-	if (str == NULL)
-	{
-		if (!(tmp = (char*)malloc(sizeof(char) * 2)))
-			return (0);
-	}
-	else
-	{
-		if (!(tmp = (char*)malloc(sizeof(char) * (ft_strlen(str) + 2))))
-			return (0);
-		while (str[i])
-		{
-			tmp[i] = str[i];
-			i++;
-		}
-	}
-	tmp[i] = c;
-	tmp[i + 1] = '\0';
-	free(str);
-	str = NULL;
-	return (tmp);
-}
-
 int				ft_create_lst(t_line **lst, int fd, char *buff, int i)
 {
 	t_line	*new;
@@ -90,7 +62,7 @@ int				ft_put_rest_in_line(t_line **lst, char ***line, int fd)
 				return (1);
 			}
 			else
-				tmp->rest = NULL;
+				ft_strdel(&tmp->rest);
 		}
 		tmp = tmp->next;
 	}
@@ -133,12 +105,10 @@ int				get_next_line(const int fd, char **line)
 
 	if (fd < 0 || !(line))
 		return (-1);
-	index_buff = read(fd, buff, BUFF_SIZE);
-	if (index_buff == -1)
+	if ((index_buff = read(fd, buff, BUFF_SIZE)) == -1)
 		return (-1);
 	buff[index_buff] = '\0';
-	if (*line != NULL)
-		*line = NULL;
+	*line = NULL;
 	i = ft_put_rest_in_line(&lst, &line, fd);
 	while (ft_put_buff_in_line(&line, buff, index_buff, i) == 0)
 	{
